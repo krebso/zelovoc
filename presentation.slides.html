@@ -13506,7 +13506,7 @@ a.anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Resizing">Resizing<a class="anchor-link" href="#Resizing">&#182;</a></h2><ul>
 <li>The majority of the images in the dataset have different resolution and aspect ratio</li>
-<li>To train our ResNet model, image data is fed in N batches, which require that all images are of the uniform size</li>
+<li>To train our ResNet model, image data is fed in N batches, which requires that all images are of uniform size</li>
 <li>We use <code>Resize</code> transform from <code>torchvision.transforms</code> to resize all images to uniform <code>256x256</code> size</li>
 </ul>
 
@@ -13543,7 +13543,7 @@ a.anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Rotating">Rotating<a class="anchor-link" href="#Rotating">&#182;</a></h2><ul>
 <li>Rotating images reduces the risk of overfitting on the training data</li>
-<li>We use <code>RandomRotation</code> from pytorch for this purpose</li>
+<li>We use <code>RandomRotation</code> for this purpose</li>
 </ul>
 
 </div>
@@ -13579,7 +13579,7 @@ a.anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Center-Cropping">Center Cropping<a class="anchor-link" href="#Center-Cropping">&#182;</a></h2><ul>
 <li>The most important parts of the images are usually present in the center</li>
-<li>We perform a <code>CenterCrop</code> transform to slice off "uninteresting" parts</li>
+<li>We perform a <code>CenterCrop</code> transform to cut off "uninteresting" parts</li>
 <li>This also brings our image size further down to <code>224x224</code> which is the required resolution for our model (ResNet)</li>
 </ul>
 
