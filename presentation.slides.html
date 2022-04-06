@@ -13650,15 +13650,20 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Creating-Preprocess-Pipeline-using-Compose">Creating Preprocess Pipeline using <code>Compose</code><a class="anchor-link" href="#Creating-Preprocess-Pipeline-using-Compose">&#182;</a></h2><div class="highlight"><pre><span></span><span class="n">transforms</span> <span class="o">=</span> <span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
-    <span class="n">transforms</span><span class="o">.</span><span class="n">Resize</span><span class="p">(</span> <span class="mi">256</span> <span class="p">),</span>
-    <span class="n">transforms</span><span class="o">.</span><span class="n">CenterCrop</span><span class="p">(</span> <span class="mi">224</span> <span class="p">),</span>
-    <span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">(),</span>
-    <span class="n">transforms</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span> <span class="n">mean</span><span class="p">,</span> <span class="n">std</span> <span class="p">),</span>
-<span class="p">])</span>
-
-<span class="n">train_data</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">ImageFolder</span><span class="p">(</span> <span class="n">train</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">copy</span><span class="p">(</span> <span class="n">transforms</span> <span class="p">)</span> <span class="p">)</span>
-<span class="n">test_data</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">ImageFolder</span><span class="p">(</span> <span class="n">test</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">copy</span><span class="p">(</span> <span class="n">transforms</span> <span class="p">)</span> <span class="p">)</span>
+<h2 id="Creating-Preprocess-Pipeline-using-Compose">Creating Preprocess Pipeline using <code>Compose</code><a class="anchor-link" href="#Creating-Preprocess-Pipeline-using-Compose">&#182;</a></h2><div class="highlight"><pre><span></span><span class="n">data_transforms</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;train&#39;</span><span class="p">:</span> <span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
+        <span class="n">transforms</span><span class="o">.</span><span class="n">RandomResizedCrop</span><span class="p">(</span><span class="mi">224</span><span class="p">),</span>
+        <span class="n">transforms</span><span class="o">.</span><span class="n">RandomHorizontalFlip</span><span class="p">(),</span> <span class="c1"># helps fight the bias in input images</span>
+        <span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">(),</span>
+        <span class="n">transforms</span><span class="o">.</span><span class="n">Normalize</span><span class="p">([</span><span class="mf">0.485</span><span class="p">,</span> <span class="mf">0.456</span><span class="p">,</span> <span class="mf">0.406</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.229</span><span class="p">,</span> <span class="mf">0.224</span><span class="p">,</span> <span class="mf">0.225</span><span class="p">])</span>
+    <span class="p">]),</span>
+    <span class="s1">&#39;validation&#39;</span><span class="p">:</span> <span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
+        <span class="n">transforms</span><span class="o">.</span><span class="n">Resize</span><span class="p">(</span><span class="mi">256</span><span class="p">),</span>
+        <span class="n">transforms</span><span class="o">.</span><span class="n">CenterCrop</span><span class="p">(</span><span class="mi">224</span><span class="p">),</span>
+        <span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">(),</span>
+        <span class="n">transforms</span><span class="o">.</span><span class="n">Normalize</span><span class="p">([</span><span class="mf">0.485</span><span class="p">,</span> <span class="mf">0.456</span><span class="p">,</span> <span class="mf">0.406</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.229</span><span class="p">,</span> <span class="mf">0.224</span><span class="p">,</span> <span class="mf">0.225</span><span class="p">])</span>
+    <span class="p">]),</span>
+<span class="p">}</span>
 </pre></div>
 
 </div>
