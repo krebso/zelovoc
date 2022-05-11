@@ -1,0 +1,6 @@
+poriadne vyhodnotenie na vsetkych validacnych datach - ci mame nejaku triedu ktora vyrazne
+underperformuje a co s tym
+
+zakladne image-processing flitre - gradient
+
+vacsia data augmentation - sum a tak podobne
