@@ -1,9 +1,8 @@
 # IB031 - Zelovoc
 
-## ROADMAP
+## Navigation
 
-- Obtain full points from project ez xd
-
+Models are in respective notebooks, the data analysis is in `data_analysis.ipynb`
 ## Generating slides from the notebook
 
 To generate slides from `presentation.ipynb` (e.g. after editting the notebook):
